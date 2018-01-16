@@ -31,9 +31,13 @@ namespace Microsoft.Bot.Sample.SimpleEchoBot
                     "Didn't get that!",
                     promptStyle: PromptStyle.Auto);
             }
+            if (count == 1)
+            {
+                await context.PostAsync("Hi there, I am Elder Bot.  I can answer questions about the Church of Jesus Christ of Latter Day Saints or commonly called the Mormons.  What would you like to know?");
+            }
             else
             {
-                await context.PostAsync($"{this.count++}: You said: {message.Text}");
+                await context.PostAsync($"{this.count++}: You typed: {message.Text}");
                 context.Wait(MessageReceivedAsync);
             }
         }
